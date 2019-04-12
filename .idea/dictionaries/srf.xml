@@ -3,6 +3,16 @@
     <words>
       <w>csvfile</w>
       <w>dataset</w>
+      <w>gini</w>
+      <w>graphviz</w>
+      <w>matplotlib</w>
+      <w>misclassifies</w>
+      <w>multilabel</w>
+      <w>scikit</w>
+      <w>seaborn</w>
+      <w>sfdp</w>
+      <w>sklearn</w>
+      <w>tpng</w>
     </words>
   </dictionary>
 </component>
