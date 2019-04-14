@@ -1,5 +1,8 @@
 scikit-learn>=0.11,<=0.17.1
+jupyter
 pandas
 seaborn
 matplotlib
-jupyter
+numpy
+flask-restful
+flask
