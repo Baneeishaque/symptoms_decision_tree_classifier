@@ -11,34 +11,32 @@ api = Api(app)
 
 
 class DiseasePrediction(Resource):
-    @staticmethod
-    def get(single_symptom):
-        # return disease
 
-        # columns = ['Source', 'Target', 'Weight']
-        # data = pd.read_csv("data/dataset_clean.csv", names=columns, encoding="ISO-8859-1")
-        # data_frame = pd.DataFrame(data)
-        # target_data_frame = pd.get_dummies(data_frame.Target)
-        # source_data_frame = data_frame['Source']
-        # disease_symptoms_data_frame = pd.concat([source_data_frame, target_data_frame], axis=1)
-        # disease_symptoms_data_frame.drop_duplicates(keep='first', inplace=True)
-        # columns = disease_symptoms_data_frame.columns
-        # columns = columns[1:]
-        # features = columns
-        # feature_dict = {}
-        # for i, f in enumerate(features):
-        #     feature_dict[f] = i
+    @staticmethod
+    def get(symptoms):
+        # return disease
+        symptoms_array = symptoms.split(',')
 
         with open('data/features.json') as json_file:
             feature_dict = json.load(json_file)
 
-        sample = [1 if i == int(feature_dict[single_symptom]) else 0 for i in range(len(feature_dict))]
-        sample_x = np.matrix(np.array(sample).reshape(1, len(sample)))
-        return disease_prediction_api.get_disease(sample_x)
+        dummy_sample = [0 for i in range(len(feature_dict))]
+        dummy_sample_x = np.matrix(dummy_sample)
+
+        for symptom in symptoms_array:
+            sample = [1 if i == int(feature_dict[symptom]) else 0 for i in range(len(feature_dict))]
+            sample_x = np.matrix(np.array(sample).reshape(1, len(sample)))
+            dummy_sample_x = dummy_sample_x + sample_x
+
+        return disease_prediction_api.get_disease(dummy_sample_x)
 
 
-api.add_resource(DiseasePrediction, '/disease_prediction/<single_symptom>')
+api.add_resource(DiseasePrediction, '/disease_prediction/<symptoms>')
 
 if __name__ == '__main__':
     app.run()
     # print (DiseasePrediction.get("headache"))
+    # print (DiseasePrediction.get("s1"))
+    # print (DiseasePrediction.get("s1,s2"))
+    # print (DiseasePrediction.get("pain,mass of body structure,lesion,cushingoid facies,cushingoid habitus,"
+    #                              "emphysematous change"))
