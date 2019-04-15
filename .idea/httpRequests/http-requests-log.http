@@ -1,0 +1,160 @@
+GET http://localhost:5000/disease_prediction/headache
+Accept: */*
+Cache-Control: no-cache
+
+<> 2019-04-14T064138.200.json
+
+###
+
+GET http://localhost:5000/disease_prediction/headache
+Accept: */*
+Cache-Control: no-cache
+
+<> 2019-04-14T064106.200.json
+
+###
+
+GET http://localhost:5000/disease_prediction/pain,mass%20of%20body%20structure,lesion,cushingoid%20facies,cushingoid%20habitus,emphysematous%20change
+Accept: */*
+Cache-Control: no-cache
+
+<> 2019-04-14T064017.200.json
+
+###
+
+GET http://localhost:5000/disease_prediction/s1
+Accept: */*
+Cache-Control: no-cache
+
+<> 2019-04-14T062713.200.json
+
+###
+
+GET http://localhost:5000/disease_prediction/s1
+Accept: */*
+Cache-Control: no-cache
+
+<> 2019-04-14T062547.500.json
+
+###
+
+GET http://localhost:5000/disease_prediction/s1
+Accept: */*
+Cache-Control: no-cache
+
+<> 2019-04-14T062504.500.json
+
+###
+
+GET http://localhost:5000/disease_prediction/jugular%20venous%20distention
+Accept: */*
+Cache-Control: no-cache
+
+<> 2019-04-14T062121.200.json
+
+###
+
+GET http://localhost:5000/disease_prediction/hypesthesia
+Accept: */*
+Cache-Control: no-cache
+
+<> 2019-04-14T062055.200.json
+
+###
+
+GET http://localhost:5000/disease_prediction/abortion
+Accept: */*
+Cache-Control: no-cache
+
+<> 2019-04-14T061958.200.json
+
+###
+
+GET http://localhost:5000/disease_prediction/abortion
+Accept: */*
+Cache-Control: no-cache
+
+<> 2019-04-14T061954.200.json
+
+###
+
+GET http://localhost:5000/disease_prediction/headache
+Accept: */*
+Cache-Control: no-cache
+
+<> 2019-04-14T061853.200.json
+
+###
+
+GET http://localhost:5000/disease_prediction/headache
+Accept: */*
+Cache-Control: no-cache
+
+<> 2019-04-14T061851.200.json
+
+###
+
+GET http://localhost:5000/disease_prediction/headache
+Accept: */*
+Cache-Control: no-cache
+
+<> 2019-04-14T061846.200.json
+
+###
+
+GET http://localhost:5000/disease_prediction/headache
+Accept: */*
+Cache-Control: no-cache
+
+<> 2019-04-14T060352.200.json
+
+###
+
+GET http://localhost:5000/disease_prediction/headache
+Accept: */*
+Cache-Control: no-cache
+
+<> 2019-04-14T060247.500.json
+
+###
+
+GET http://localhost:5000/disease_prediction/headache/
+Accept: */*
+Cache-Control: no-cache
+
+<> 2019-04-14T060240.404.html
+
+###
+
+GET http://localhost:5000/disease_prediction/headache
+Accept: */*
+Cache-Control: no-cache
+
+<> 2019-04-14T060228.500.json
+
+###
+
+GET http://localhost:5000/disease_prediction/
+Accept: */*
+Cache-Control: no-cache
+
+<> 2019-04-14T060200.404.html
+
+###
+
+GET http://localhost:5000/disease_prediction
+Accept: */*
+Cache-Control: no-cache
+
+<> 2019-04-14T060154.404.html
+
+###
+
+GET http://localhost:5000
+Accept: */*
+Cache-Control: no-cache
+
+<> 2019-04-14T060137.404.html
+
+###
+
