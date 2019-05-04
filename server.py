@@ -34,7 +34,7 @@ class DiseasePrediction(Resource):
 api.add_resource(DiseasePrediction, '/disease_prediction/<symptoms>')
 
 if __name__ == '__main__':
-    app.run()
+    app.run(host='0.0.0.0')
     # print (DiseasePrediction.get("headache"))
     # print (DiseasePrediction.get("s1"))
     # print (DiseasePrediction.get("s1,s2"))
