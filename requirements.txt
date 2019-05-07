@@ -7,3 +7,4 @@ numpy
 flask-restful
 flask
 gunicorn
+mysql-connector

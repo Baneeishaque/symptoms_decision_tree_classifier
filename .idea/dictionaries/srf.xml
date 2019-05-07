@@ -9,6 +9,7 @@
       <w>facies</w>
       <w>gini</w>
       <w>graphviz</w>
+      <w>gunicorn</w>
       <w>habitus</w>
       <w>hematuria</w>
       <w>matplotlib</w>
