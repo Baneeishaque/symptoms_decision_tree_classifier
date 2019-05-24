@@ -68,7 +68,8 @@ class GetSlot(Resource):
           database="shc"
         )
         mycursor = mydb.cursor()
-        mycursor.execute("SELECT appoinment_slot_time FROM appoinment_slot WHERE doctor_id='%s'" % doctor_id)
+        mycursor.execute(
+            "SELECT appoinment_slot_id,appoinment_slot_time FROM appoinment_slot WHERE doctor_id='%s'" % doctor_id)
         
         row_headers=[x[0] for x in mycursor.description] #this will extract row headers
         
