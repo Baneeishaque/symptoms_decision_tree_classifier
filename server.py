@@ -33,78 +33,95 @@ class DiseasePrediction(Resource):
 
 
 class GetDoctor(Resource):
-        
+
     @staticmethod
     def get(disease):
         mydb = mysql.connector.connect(
-          host="localhost",
-          user="root",
-          passwd="1234",
-          database="shc"
+            host="localhost",
+            user="root",
+            passwd="1234",
+            database="shc"
         )
         mycursor = mydb.cursor()
-        mycursor.execute("SELECT doctor.doctor_id,doctor_name,doctor_address,doctor_designation,doctor_working_hospital,doctor_available_time,doctor_certificate_id,doctor_working_clinic,doctor_consultation_fee FROM doctor,doctor_disease WHERE doctor_disease.doctor_id=doctor.doctor_id AND disease='%s'" % disease)
-        
-        row_headers=[x[0] for x in mycursor.description] #this will extract row headers
-        
-        myresult = mycursor.fetchall()        
-        
-        json_data=[]
-        
+        mycursor.execute(
+            "SELECT doctor.doctor_id,doctor_name,doctor_address,doctor_designation,doctor_working_hospital,doctor_available_time,doctor_certificate_id,doctor_working_clinic,doctor_consultation_fee FROM doctor,doctor_disease WHERE doctor_disease.doctor_id=doctor.doctor_id AND disease='%s'" % disease)
+
+        row_headers = [x[0] for x in mycursor.description]  # this will extract row headers
+
+        myresult = mycursor.fetchall()
+
+        json_data = []
+
         for result in myresult:
-            json_data.append(dict(zip(row_headers,result)))
-        
+            json_data.append(dict(zip(row_headers, result)))
+
         return json.dumps(json_data)
 
 
 class GetSlot(Resource):
-        
+
     @staticmethod
     def get(doctor_id):
         mydb = mysql.connector.connect(
-          host="localhost",
-          user="root",
-          passwd="1234",
-          database="shc"
+            host="localhost",
+            user="root",
+            passwd="1234",
+            database="shc"
         )
         mycursor = mydb.cursor()
         mycursor.execute(
             "SELECT appoinment_slot_id,appoinment_slot_time FROM appoinment_slot WHERE doctor_id='%s'" % doctor_id)
-        
-        row_headers=[x[0] for x in mycursor.description] #this will extract row headers
-        
-        myresult = mycursor.fetchall()        
-        
-        json_data=[]
-        
+
+        row_headers = [x[0] for x in mycursor.description]  # this will extract row headers
+
+        myresult = mycursor.fetchall()
+
+        json_data = []
+
         for result in myresult:
-            json_data.append(dict(zip(row_headers,result)))
-        
-        return json.dumps(json_data)        
+            # return result[0]
+            # return "SELECT appoinments_id FROM appoinments WHERE doctor_id='%s' AND slot_id='%s'" % (doctor_id,result[0])
+            # return "SELECT appoinments_id FROM appoinments WHERE doctor_id='%s' AND slot_id='%s' AND `current_date`=CURDATE()" % (doctor_id,result[0])
+            mycursor.execute(
+                "SELECT appoinments_id FROM appoinments WHERE doctor_id='%s' AND slot_id='%s' AND `current_date`=CURDATE()" % (
+                doctor_id, result[0]))
+            check_result = mycursor.fetchall()
+            # return check_result
+            check_result_flag = 0
+            for check in check_result:
+                check_result_flag = 1
+                # return result[0]
+            if check_result_flag == 0:
+                json_data.append(dict(zip(row_headers, result)))
+
+        return json.dumps(json_data)
+
 
 class AddSlot(Resource):
-        
+
     @staticmethod
     def get(name, address, contact_number, disease, doctor, slot, transaction_id, doctor_id, slot_id, current_date):
         mydb = mysql.connector.connect(
-          host="localhost",
-          user="root",
-          passwd="1234",
-          database="shc"
+            host="localhost",
+            user="root",
+            passwd="1234",
+            database="shc"
         )
         mycursor = mydb.cursor()
-        sql="INSERT INTO `appoinments`(`name`,`address`,`contact_number`,`disease`,`doctor`,`slot`,`transaction_id`,`doctor_id`,`slot_id`,`current_date`)VALUES('%s','%s','%s','%s','%s','%s','%s','%s','%s','%s')" % (name,address,contact_number,disease,doctor,slot,transaction_id,doctor_id,slot_id,current_date)
+        sql = "INSERT INTO `appoinments`(`name`,`address`,`contact_number`,`disease`,`doctor`,`slot`,`transaction_id`,`doctor_id`,`slot_id`,`current_date`)VALUES('%s','%s','%s','%s','%s','%s','%s','%s','%s','%s')" % (
+            name, address, contact_number, disease, doctor, slot, transaction_id, doctor_id, slot_id, current_date)
         # return sql
         mycursor.execute(sql)
         mydb.commit()
-        
-        return "ok"    
+
+        return "ok"
 
 
 api.add_resource(DiseasePrediction, '/disease_prediction/<symptoms>')
 api.add_resource(GetDoctor, '/get_doctor/<disease>')
 api.add_resource(GetSlot, '/get_slot/<doctor_id>')
-api.add_resource(AddSlot, '/add_slot/<name>/<address>/<contact_number>/<disease>/<doctor>/<slot>/<transaction_id>/<doctor_id>/<slot_id>/<current_date>')
+api.add_resource(AddSlot,
+                 '/add_slot/<name>/<address>/<contact_number>/<disease>/<doctor>/<slot>/<transaction_id>/<doctor_id>/<slot_id>/<current_date>')
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0')
