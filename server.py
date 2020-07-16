@@ -39,7 +39,7 @@ class GetDoctor(Resource):
         mydb = mysql.connector.connect(
             host="localhost",
             user="root",
-            passwd="1234",
+            passwd="",
             database="shc"
         )
         mycursor = mydb.cursor()
