@@ -1865,3 +1865,9 @@ UMLS:C0233472_affect labile,45,UMLS:C0277794_extreme exhaustion
 UMLS:C0011127_decubitus ulcer,42,UMLS:C0232257_systolic murmur
 ,,UMLS:C0871754_frail
 ,,UMLS:C0015967_fever
+UMLS:C0011128_covid 19,15,UMLS:C0015967_fever
+,,UMLS:C0871758_dry cough
+,,UMLS:C0815963_tiredness
+,,UMLS:C0875963_difficulty breathing or shortness of breath
+,,UMLS:C0885963_chest pain or pressure
+,,UMLS:C0895963_loss of speech or movement

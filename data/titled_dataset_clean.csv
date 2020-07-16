@@ -1236,6 +1236,12 @@ pancreatitis,stool color yellow,165
 pancreatitis,rigor - temperature-associated observation,165
 pancreatitis,apyrexial,165
 pancreatitis,sore to touch,165
+covid 19,fever,15
+covid 19,dry cough,15
+covid 19,tiredness,15
+covid 19,difficulty breathing or shortness of breath,15
+covid 19,chest pain or pressure,15
+covid 19,loss of speech or movement,15
 cholelithiasis,vomiting,61
 cholelithiasis,nausea,61
 cholelithiasis,pain abdominal,61
